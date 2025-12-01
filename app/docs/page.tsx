@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FadeIn } from '@/components/animations/fade-in';
 
 export default function DocsPage() {
@@ -32,7 +33,7 @@ export default function DocsPage() {
 
       <h2>Next Steps</h2>
       <p>
-        Ready to get started? Check out our <a href="/docs/quickstart" className="text-primary hover:underline">Quickstart Guide</a> to set up your first project in minutes.
+        Ready to get started? Check out our <Link href="/docs/opentelemetry" className="text-primary hover:underline">OpenTelemetry SDK</Link> to start capturing errors.
       </p>
     </FadeIn>
   );

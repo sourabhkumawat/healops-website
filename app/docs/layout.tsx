@@ -20,23 +20,12 @@ export default function DocsLayout({
               <h4 className="font-semibold mb-2 px-2">Getting Started</h4>
               <nav className="flex flex-col space-y-1">
                 <Link href="/docs" className="block px-2 py-1.5 text-sm font-medium text-primary bg-primary/10 rounded-md">Introduction</Link>
-                <Link href="/docs/installation" className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-colors">Installation</Link>
-                <Link href="/docs/quickstart" className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-colors">Quickstart</Link>
               </nav>
             </div>
             <div>
-              <h4 className="font-semibold mb-2 px-2">Core Concepts</h4>
+              <h4 className="font-semibold mb-2 px-2">SDKs</h4>
               <nav className="flex flex-col space-y-1">
-                <Link href="/docs/incidents" className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-colors">Incidents</Link>
-                <Link href="/docs/alerts" className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-colors">Alerts</Link>
-                <Link href="/docs/integrations" className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-colors">Integrations</Link>
-              </nav>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2 px-2">API Reference</h4>
-              <nav className="flex flex-col space-y-1">
-                <Link href="/docs/api/v1" className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-colors">REST API</Link>
-                <Link href="/docs/sdk" className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-colors">SDKs</Link>
+                <Link href="/docs/opentelemetry" className="block px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-colors">OpenTelemetry Node.js SDK</Link>
               </nav>
             </div>
           </div>
