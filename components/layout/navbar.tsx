@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
@@ -23,7 +24,13 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight">
-          <div className="h-6 w-6 rounded-full bg-primary" />
+          <Image 
+            src="/logo.png" 
+            alt="HealOps Logo" 
+            width={32} 
+            height={32}
+            className="h-8 w-8"
+          />
           <span>HealOps</span>
         </Link>
 
