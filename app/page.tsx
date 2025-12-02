@@ -19,10 +19,10 @@ export default function Home() {
               v2.0 is now available
             </Badge>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white text-balance">
-              Self-healing infrastructure for <span className="text-primary">high-velocity</span> teams.
+              Turn Observability Logs into <span className="text-primary">Self-Healing</span> Actions.
             </h1>
             <p className="text-xl text-muted-foreground max-w-[600px] text-balance">
-              Don&apos;t just monitor. Heal. Our AI analyzes your logs in real-time and automatically resolves incidents before they impact users.
+              Stop spending hours analyzing error logs. HealOps automatically detects errors and warnings in your observability data and self-heals your system, saving developers countless hours of debugging.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
               <Button size="lg" className="text-lg px-8 rounded-full h-12 font-semibold">
@@ -42,33 +42,33 @@ export default function Home() {
           <Card className="bg-card/50 border-border/50 backdrop-blur-sm">
             <CardHeader>
               <Activity className="h-10 w-10 text-primary mb-4" />
-              <CardTitle>Real-time Monitoring</CardTitle>
+              <CardTitle>Deep Observability Analysis</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Stream logs and metrics in real-time with zero latency. Catch issues before they impact your users.
+                We analyze your observability logs to identify errors and warnings, giving you deep insights into system health.
               </p>
             </CardContent>
           </Card>
           <Card className="bg-card/50 border-border/50 backdrop-blur-sm">
             <CardHeader>
               <Zap className="h-10 w-10 text-primary mb-4" />
-              <CardTitle>Autonomous Remediation</CardTitle>
+              <CardTitle>Automated Self-Healing</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                AI agents detect anomalies and execute safe remediation scripts to fix issues without human intervention.
+                Our system doesn't just alert you; it self-heals. Automated actions resolve issues instantly to prevent user impact.
               </p>
             </CardContent>
           </Card>
           <Card className="bg-card/50 border-border/50 backdrop-blur-sm">
             <CardHeader>
               <Shield className="h-10 w-10 text-primary mb-4" />
-              <CardTitle>Secure by Design</CardTitle>
+              <CardTitle>Save Developer Time</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Enterprise-grade security with SOC2 compliance, SSO, and granular role-based access control.
+                Eliminate the need for developers to manually check logs and fix errors. Let HealOps handle the routine maintenance.
               </p>
             </CardContent>
           </Card>
@@ -92,34 +92,39 @@ export default function Home() {
             <div className="p-4 font-mono text-sm space-y-2 h-[300px] overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-card pointer-events-none" />
               <div className="flex gap-2 text-muted-foreground">
-                <span className="text-blue-400">INFO</span>
-                <span className="opacity-50">10:42:01</span>
-                <span>Service started successfully on port 8080</span>
-              </div>
-              <div className="flex gap-2 text-muted-foreground">
-                <span className="text-blue-400">INFO</span>
-                <span className="opacity-50">10:42:05</span>
-                <span>Connected to database primary-db-01</span>
-              </div>
-              <div className="flex gap-2 text-muted-foreground">
-                <span className="text-yellow-400">WARN</span>
-                <span className="opacity-50">10:45:12</span>
-                <span>High memory usage detected (85%)</span>
-              </div>
-              <div className="flex gap-2 text-muted-foreground">
                 <span className="text-red-500">ERROR</span>
-                <span className="opacity-50">10:46:00</span>
-                <span>Connection timeout: upstream service unavailable</span>
+                <span className="opacity-50">11:05:10</span>
+                <span>ReferenceError: 'user' is not defined at /app/routes/profile.js:42</span>
+              </div>
+              <div className="flex gap-2 text-muted-foreground">
+                <span className="text-primary font-bold">HEALOPS</span>
+                <span className="opacity-50">11:05:11</span>
+                <span>AI Agent detected code error: 'ReferenceError'</span>
+              </div>
+              <div className="flex gap-2 text-muted-foreground">
+                <span className="text-primary font-bold">HEALOPS</span>
+                <span className="opacity-50">11:05:12</span>
+                <span>Analyzing stack trace and git history...</span>
+              </div>
+              <div className="flex gap-2 text-muted-foreground">
+                <span className="text-primary font-bold">HEALOPS</span>
+                <span className="opacity-50">11:05:15</span>
+                <span>Generating fix: 'const user = await getUser(req.params.id)'</span>
+              </div>
+              <div className="flex gap-2 text-muted-foreground">
+                <span className="text-primary font-bold">HEALOPS</span>
+                <span className="opacity-50">11:05:18</span>
+                <span>Applying hot-patch to instance i-0a1b2c3d</span>
               </div>
               <div className="flex gap-2 text-muted-foreground">
                 <span className="text-blue-400">INFO</span>
-                <span className="opacity-50">10:46:01</span>
-                <span>Retrying connection (attempt 1/3)...</span>
+                <span className="opacity-50">11:05:22</span>
+                <span>Hot-patch applied successfully. Service reloading...</span>
               </div>
               <div className="flex gap-2 text-muted-foreground">
                 <span className="text-green-500">RESOLVED</span>
-                <span className="opacity-50">10:46:05</span>
-                <span>Connection re-established</span>
+                <span className="opacity-50">11:05:25</span>
+                <span>Error rate dropped to 0%. Fix verified.</span>
               </div>
             </div>
           </div>
@@ -144,19 +149,19 @@ export default function Home() {
               <div className="divide-y divide-border">
                 <div className="grid grid-cols-12 gap-4 p-4 items-center hover:bg-muted/10 transition-colors">
                   <div className="col-span-2"><Badge variant="destructive">CRITICAL</Badge></div>
-                  <div className="col-span-6 font-medium">API Gateway Latency Spike</div>
-                  <div className="col-span-2"><Badge variant="outline" className="border-yellow-500/50 text-yellow-500">Investigating</Badge></div>
+                  <div className="col-span-6 font-medium">ReferenceError: 'user' is not defined</div>
+                  <div className="col-span-2"><Badge variant="outline" className="border-green-500/50 text-green-500">Resolved</Badge></div>
                   <div className="col-span-2 text-right text-sm text-muted-foreground">2m ago</div>
                 </div>
                 <div className="grid grid-cols-12 gap-4 p-4 items-center hover:bg-muted/10 transition-colors">
                   <div className="col-span-2"><Badge className="bg-orange-500 hover:bg-orange-600">HIGH</Badge></div>
-                  <div className="col-span-6 font-medium">Database Connection Pool Exhausted</div>
-                  <div className="col-span-2"><Badge variant="outline" className="border-blue-500/50 text-blue-500">Monitoring</Badge></div>
+                  <div className="col-span-6 font-medium">Memory Leak: Heap limit exceeded</div>
+                  <div className="col-span-2"><Badge variant="outline" className="border-green-500/50 text-green-500">Resolved</Badge></div>
                   <div className="col-span-2 text-right text-sm text-muted-foreground">15m ago</div>
                 </div>
                 <div className="grid grid-cols-12 gap-4 p-4 items-center hover:bg-muted/10 transition-colors">
                   <div className="col-span-2"><Badge variant="secondary">LOW</Badge></div>
-                  <div className="col-span-6 font-medium">Background Job Delay</div>
+                  <div className="col-span-6 font-medium">TypeError: Cannot read properties of null</div>
                   <div className="col-span-2"><Badge variant="outline" className="border-green-500/50 text-green-500">Resolved</Badge></div>
                   <div className="col-span-2 text-right text-sm text-muted-foreground">1h ago</div>
                 </div>

@@ -2,7 +2,14 @@ import { FadeIn } from '@/components/animations/fade-in';
 
 export default function OpenTelemetryPage() {
   return (
-    <FadeIn className="prose prose-invert max-w-none">
+    <FadeIn className="prose prose-invert prose-lg max-w-none 
+      prose-headings:font-bold prose-headings:tracking-tight prose-headings:mt-8 prose-headings:mb-4
+      prose-p:leading-relaxed prose-p:mb-6 prose-p:text-muted-foreground
+      prose-li:text-muted-foreground prose-li:mb-2
+      prose-strong:text-foreground
+      prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+      prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+      prose-pre:bg-muted/50 prose-pre:border prose-pre:border-border">
       <h1>@healops/opentelemetry</h1>
       <p className="lead text-xl text-muted-foreground">
         The official HealOps OpenTelemetry SDK for Node.js. Automatically captures and reports error spans to the HealOps platform.

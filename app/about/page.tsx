@@ -1,27 +1,39 @@
 'use client';
 
 import { FadeIn, FadeInStagger } from '@/components/animations/fade-in';
-import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Activity, Zap, Shield, Brain, Clock, TrendingUp } from 'lucide-react';
 
-const team = [
+const values = [
   {
-    name: 'Alex Chen',
-    role: 'Co-founder & CEO',
-    bio: 'Ex-Google SRE. Obsessed with reliability.',
-    initials: 'AC',
+    icon: Activity,
+    title: 'Observability First',
+    description: 'We believe that understanding your system starts with deep log analysis. Our AI doesn\'t just collect logs—it understands them.',
   },
   {
-    name: 'Sarah Jones',
-    role: 'Co-founder & CTO',
-    bio: 'Built high-scale systems at Netflix.',
-    initials: 'SJ',
+    icon: Zap,
+    title: 'Action Over Alerts',
+    description: 'Traditional tools tell you what\'s wrong. HealOps fixes it. We believe machines should solve machine problems.',
   },
   {
-    name: 'Mike Smith',
-    role: 'Head of Product',
-    bio: 'Product leader from Datadog.',
-    initials: 'MS',
+    icon: Brain,
+    title: 'AI-Powered Intelligence',
+    description: 'Our Large Language Models are trained on millions of incidents. They learn patterns, predict failures, and generate fixes.',
+  },
+  {
+    icon: Clock,
+    title: 'Time is Precious',
+    description: 'Developers should build features, not babysit servers. We give engineering teams their nights and weekends back.',
+  },
+  {
+    icon: Shield,
+    title: 'Safe Automation',
+    description: 'Every remediation action is validated and reversible. We prioritize safety while maintaining speed.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Continuous Learning',
+    description: 'HealOps gets smarter with every incident. Our AI adapts to your infrastructure and learns from your patterns.',
   },
 ];
 
@@ -42,21 +54,29 @@ export default function AboutPage() {
           <p>
             We believe that incident management shouldn&apos;t be a chaotic fire-drill. It should be a structured, calm, and data-driven process that helps teams learn and improve.
           </p>
+          <p className="text-lg font-semibold text-foreground mt-8">
+            Our approach is simple: Turn observability logs into self-healing actions.
+          </p>
         </div>
       </FadeIn>
 
-      <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {team.map((member, index) => (
+      <FadeIn className="text-center mb-12">
+        <h2 className="text-3xl font-bold tracking-tight mb-4">What We Believe</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Our product philosophy is built on these core principles that guide every decision we make.
+        </p>
+      </FadeIn>
+
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {values.map((value, index) => (
           <Card key={index} className="bg-card/50 border-border/50 backdrop-blur-sm">
-            <CardContent className="pt-6 flex flex-col items-center text-center">
-              <Avatar className="h-24 w-24 mb-4 border-2 border-primary/20">
-                <AvatarImage src={`/placeholder-avatar-${index}.jpg`} />
-                <AvatarFallback className="text-lg bg-primary/10 text-primary">{member.initials}</AvatarFallback>
-              </Avatar>
-              <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-              <p className="text-primary text-sm mb-4">{member.role}</p>
-              <p className="text-muted-foreground text-sm">
-                {member.bio}
+            <CardHeader>
+              <value.icon className="h-10 w-10 text-primary mb-4" />
+              <CardTitle className="text-xl">{value.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                {value.description}
               </p>
             </CardContent>
           </Card>
