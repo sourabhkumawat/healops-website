@@ -6,15 +6,23 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { FadeIn, FadeInStagger } from '@/components/animations/fade-in';
 import { ArrowRight, Activity, Shield, Zap, Terminal } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [animationKey, setAnimationKey] = useState(0);
+
+  useEffect(() => {
+    // Force animation reset on mount
+    setAnimationKey(prev => prev + 1);
+  }, []);
+
   return (
     <div className="flex flex-col gap-20 pb-20">
       {/* Hero Section */}
       <section className="relative overflow-hidden min-h-[80vh] flex items-center justify-center pt-20 pb-32 md:pt-32 md:pb-48">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background opacity-40" />
         <div className="container px-4 md:px-6 relative z-10">
-          <FadeIn className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
+          <FadeIn key={animationKey} className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
             <Badge variant="outline" className="px-4 py-1.5 text-sm border-primary/50 text-primary bg-primary/10 rounded-full">
               v2.0 is now available
             </Badge>
