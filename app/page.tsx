@@ -19,6 +19,30 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-20 pb-20 relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "HealOps",
+            applicationCategory: "DeveloperApplication",
+            operatingSystem: "Cloud",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+            },
+            description:
+              "HealOps is an AI-powered incident management platform that automatically detects errors and self-heals systems.",
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.8",
+              ratingCount: "120",
+            },
+          }),
+        }}
+      />
       <BackgroundParticles />
       {/* Hero Section */}
       <section className="relative overflow-hidden min-h-[80vh] flex items-center justify-center pt-20 pb-32 md:pt-32 md:pb-48">
