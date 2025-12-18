@@ -65,7 +65,13 @@ export function Navbar() {
                         size="sm"
                         className="rounded-full px-6 font-semibold"
                     >
-                        <Link href="/signup">Get Early Access</Link>
+                        <a
+                            href="https://calendly.com/sourabhkumawat0105/lets-talk-self-healing"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Book a 30-Min Call
+                        </a>
                     </Button>
                 </div>
 
@@ -108,12 +114,14 @@ export function Navbar() {
                                     asChild
                                     className="w-full rounded-full font-semibold"
                                 >
-                                    <Link
-                                        href="/signup"
+                                    <a
+                                        href="https://calendly.com/sourabhkumawat0105/lets-talk-self-healing"
+                                        target="_blank"
+                                        rel="noreferrer"
                                         onClick={() => setIsOpen(false)}
                                     >
-                                        Get Early Access
-                                    </Link>
+                                        Book a 30-Min Call
+                                    </a>
                                 </Button>
                             </div>
                         </nav>
