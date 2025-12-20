@@ -25,6 +25,7 @@ const plans = [
       'SLA guarantees',
     ],
     cta: 'Start for free',
+    ctaUrl: 'https://experiment.healops.ai',
     variant: 'outline' as const,
   },
   {
@@ -164,19 +165,42 @@ export default function PricingPage() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button 
-                className="w-full" 
-                variant={plan.variant} 
-                size="lg"
-                onClick={() => {
-                  trackCTA(plan.cta, `Pricing - ${plan.name}`);
-                  if (plan.name === 'Pro' || plan.name === 'Enterprise') {
-                    trackKeyEvent('pricing_cta_clicked', plan.name === 'Pro' ? 49 : 0);
-                  }
-                }}
-              >
-                {plan.cta}
-              </Button>
+              {plan.ctaUrl ? (
+                <Button 
+                  className="w-full" 
+                  variant={plan.variant} 
+                  size="lg"
+                  asChild
+                >
+                  <a
+                    href={plan.ctaUrl}
+                    target={plan.ctaUrl.startsWith('http') ? '_blank' : undefined}
+                    rel={plan.ctaUrl.startsWith('http') ? 'noreferrer' : undefined}
+                    onClick={() => {
+                      trackCTA(plan.cta, `Pricing - ${plan.name}`);
+                      if (plan.name === 'Starter') {
+                        trackKeyEvent('start_free_clicked');
+                      }
+                    }}
+                  >
+                    {plan.cta}
+                  </a>
+                </Button>
+              ) : (
+                <Button 
+                  className="w-full" 
+                  variant={plan.variant} 
+                  size="lg"
+                  onClick={() => {
+                    trackCTA(plan.cta, `Pricing - ${plan.name}`);
+                    if (plan.name === 'Pro' || plan.name === 'Enterprise') {
+                      trackKeyEvent('pricing_cta_clicked', plan.name === 'Pro' ? 49 : 0);
+                    }
+                  }}
+                >
+                  {plan.cta}
+                </Button>
+              )}
             </CardFooter>
           </Card>
         ))}
