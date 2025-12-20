@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://healops.com"),
   title: {
-    default: "HealOps - Modern Incident Management & AI Observability",
+    default: "HealOps - AI-Powered Self-Healing Incident Management Platform",
     template: "%s | HealOps",
   },
   description:
-    "HealOps is the AI-powered incident management platform that turns observability logs into self-healing actions for high-velocity engineering teams.",
+    "HealOps is the AI-powered incident management platform that turns observability logs into self-healing actions. Automate incident response, eliminate on-call hell, and let LLMs detect and fix errors automatically. Hot-patch code errors, auto-scale infrastructure, and reduce developer burnout.",
   keywords: [
     "incident management",
     "AI observability",
@@ -30,6 +30,21 @@ export const metadata: Metadata = {
     "sre tools",
     "log analysis",
     "automated debugging",
+    "autonomous operations",
+    "LLM incident response",
+    "hot-patch automation",
+    "observability platform",
+    "error detection",
+    "incident automation",
+    "self-healing infrastructure",
+    "automated remediation",
+    "on-call automation",
+    "developer tools",
+    "ops automation",
+    "OpenTelemetry",
+    "observability logs",
+    "error auto-fix",
+    "incident response automation",
   ],
   authors: [{ name: "HealOps Team" }],
   creator: "HealOps",
@@ -39,7 +54,7 @@ export const metadata: Metadata = {
     url: "https://healops.com",
     title: "HealOps - Turn Logs into Self-Healing Actions",
     description:
-      "Stop spending hours analyzing error logs. HealOps automatically detects errors and self-heals your system.",
+      "Stop spending hours analyzing error logs and waking up to 3am alerts. HealOps uses AI to automatically detect errors, generate hot-patches, and self-heal your system in real-time. Eliminate on-call hell and reduce developer burnout.",
     siteName: "HealOps",
     images: [
       {
@@ -54,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "HealOps - AI-Powered Incident Management",
     description:
-      "Automate your incident response with HealOps. Turn observability logs into self-healing actions.",
+      "Automate your incident response with AI-powered HealOps. Turn observability logs into self-healing actions. Hot-patch errors, auto-scale infrastructure, and eliminate on-call hell.",
     images: ["/og-image.png"],
     creator: "@healops",
   },
@@ -77,6 +92,14 @@ export const metadata: Metadata = {
     apple: [
       { url: "/logo.png" },
     ],
+  },
+  alternates: {
+    canonical: "https://healops.com",
+  },
+  other: {
+    "theme-color": "#000000",
+    "format-detection": "telephone=no",
+    "apple-mobile-web-app-capable": "yes",
   },
 };
 

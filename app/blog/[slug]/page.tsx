@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import { getPostBySlug, blogPosts } from '@/lib/blog-data';
 import { FadeIn } from '@/components/animations/fade-in';
 import { Badge } from '@/components/ui/badge';
@@ -18,6 +19,44 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+    };
+  }
+
+  const baseUrl = 'https://healops.com';
+  const url = `${baseUrl}/blog/${slug}`;
+  const datePublished = new Date(post.date).toISOString();
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    authors: [{ name: post.author }],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url,
+      type: 'article',
+      publishedTime: datePublished,
+      authors: [post.author],
+      tags: [post.category],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+    },
+    alternates: {
+      canonical: url,
+    },
+  };
+}
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -26,8 +65,49 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const baseUrl = 'https://healops.com';
+  const url = `${baseUrl}/blog/${slug}`;
+  const datePublished = new Date(post.date).toISOString();
+  const dateModified = new Date(post.date).toISOString();
+
+  // Strip HTML tags from content for articleBody
+  const articleBody = post.content.replace(/<[^>]*>/g, '').trim();
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    image: `${baseUrl}/og-image.png`,
+    datePublished,
+    dateModified,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'HealOps',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    articleBody,
+  };
+
   return (
     <article className="container px-4 md:px-6 py-20 md:py-32 max-w-3xl mx-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
       <FadeIn>
         <div className="mb-8">
           <Link href="/blog">

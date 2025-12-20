@@ -16,6 +16,27 @@ export default function Home() {
         setAnimationKey((prev) => prev + 1);
     }, []);
 
+    const baseUrl = 'https://healops.com';
+
+    const organizationSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'HealOps',
+        url: baseUrl,
+        logo: `${baseUrl}/logo.png`,
+        sameAs: [
+            // Add social media links when available
+            // 'https://twitter.com/healops',
+            // 'https://linkedin.com/company/healops',
+        ],
+        contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'Sales',
+            url: `${baseUrl}/contact`,
+        },
+        description: 'AI-powered incident management platform that turns observability logs into self-healing actions. Automate incident response with LLM-powered error detection, hot-patch generation, and autonomous remediation to eliminate on-call hell and reduce developer burnout.',
+    };
+
     return (
         <div className="flex flex-col gap-20 pb-20 relative">
             <script
@@ -33,13 +54,19 @@ export default function Home() {
                             priceCurrency: 'USD'
                         },
                         description:
-                            'HealOps is an AI-powered incident management platform that automatically detects errors and self-heals systems.',
+                            'HealOps is an AI-powered incident management platform that turns observability logs into self-healing actions. Uses LLMs to automatically detect errors, generate hot-patches, auto-scale infrastructure, and eliminate on-call hell for engineering teams.',
                         aggregateRating: {
                             '@type': 'AggregateRating',
                             ratingValue: '4.8',
                             ratingCount: '120'
                         }
                     })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(organizationSchema),
                 }}
             />
             <BackgroundParticles />
