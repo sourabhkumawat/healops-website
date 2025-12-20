@@ -126,7 +126,44 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-WQDNK7TP7F');
+            gtag('config', 'G-WQDNK7TP7F', {
+              page_path: window.location.pathname,
+              send_page_view: true
+            });
+
+            // Initialize scroll tracking
+            if (typeof window !== 'undefined') {
+              const depths = [25, 50, 75, 100];
+              const tracked = new Set();
+              
+              const handleScroll = () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+                
+                depths.forEach((depth) => {
+                  if (scrollPercent >= depth && !tracked.has(depth)) {
+                    tracked.add(depth);
+                    gtag('event', 'scroll', {
+                      event_category: 'Engagement',
+                      event_label: depth + '%',
+                      value: depth
+                    });
+                  }
+                });
+              };
+              
+              let ticking = false;
+              window.addEventListener('scroll', () => {
+                if (!ticking) {
+                  window.requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                  });
+                  ticking = true;
+                }
+              }, { passive: true });
+            }
           `}
         </Script>
         

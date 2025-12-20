@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import { blogPosts } from '@/lib/blog-data';
+import { trackEvent } from '@/lib/analytics';
 
 export default function BlogPage() {
   const baseUrl = 'https://healops.com';
@@ -65,7 +66,17 @@ export default function BlogPage() {
                 <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {post.date}</span>
               </div>
               <CardTitle className="text-2xl mb-2">
-                <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
+                <Link 
+                  href={`/blog/${post.slug}`} 
+                  className="hover:text-primary transition-colors"
+                  onClick={() => {
+                    trackEvent({
+                      action: 'click',
+                      category: 'Blog Post',
+                      label: post.title,
+                    });
+                  }}
+                >
                   {post.title}
                 </Link>
               </CardTitle>
@@ -86,7 +97,17 @@ export default function BlogPage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Link href={`/blog/${post.slug}`} className="w-full">
+              <Link 
+                href={`/blog/${post.slug}`} 
+                className="w-full"
+                onClick={() => {
+                  trackEvent({
+                    action: 'click',
+                    category: 'Blog Post',
+                    label: `Read more - ${post.title}`,
+                  });
+                }}
+              >
                 <Button variant="ghost" className="w-full justify-between hover:bg-transparent hover:text-primary group px-0">
                   Read more <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>

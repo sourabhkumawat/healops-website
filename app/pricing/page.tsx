@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { trackCTA, trackKeyEvent } from '@/lib/analytics';
 
 const plans = [
   {
@@ -163,7 +164,17 @@ export default function PricingPage() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" variant={plan.variant} size="lg">
+              <Button 
+                className="w-full" 
+                variant={plan.variant} 
+                size="lg"
+                onClick={() => {
+                  trackCTA(plan.cta, `Pricing - ${plan.name}`);
+                  if (plan.name === 'Pro' || plan.name === 'Enterprise') {
+                    trackKeyEvent('pricing_cta_clicked', plan.name === 'Pro' ? 49 : 0);
+                  }
+                }}
+              >
                 {plan.cta}
               </Button>
             </CardFooter>

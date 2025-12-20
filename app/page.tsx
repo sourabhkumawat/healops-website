@@ -7,6 +7,8 @@ import { BackgroundParticles } from '@/components/ui/background-particles';
 import { FadeIn, FadeInStagger } from '@/components/animations/fade-in';
 import { ArrowRight, Activity, Shield, Zap, Terminal } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { trackCTA, trackKeyEvent } from '@/lib/analytics';
+import Link from 'next/link';
 
 export default function Home() {
     const [animationKey, setAnimationKey] = useState(0);
@@ -51,7 +53,9 @@ export default function Home() {
                         offers: {
                             '@type': 'Offer',
                             price: '0',
-                            priceCurrency: 'USD'
+                            priceCurrency: 'USD',
+                            availability: 'https://schema.org/InStock',
+                            url: 'https://healops.com/pricing'
                         },
                         description:
                             'HealOps is an AI-powered incident management platform that turns observability logs into self-healing actions. Uses LLMs to automatically detect errors, generate hot-patches, auto-scale infrastructure, and eliminate on-call hell for engineering teams.',
@@ -59,7 +63,19 @@ export default function Home() {
                             '@type': 'AggregateRating',
                             ratingValue: '4.8',
                             ratingCount: '120'
-                        }
+                        },
+                        featureList: [
+                            'AI-powered error detection',
+                            'Automated hot-patch generation',
+                            'Self-healing infrastructure',
+                            'Real-time log analysis',
+                            'OpenTelemetry integration',
+                            'Automated incident response'
+                        ],
+                        screenshot: `${baseUrl}/og-image.png`,
+                        applicationSubCategory: 'DevOps Tools',
+                        softwareVersion: '2.0',
+                        releaseNotes: `${baseUrl}/blog`
                     })
                 }}
             />
@@ -67,6 +83,23 @@ export default function Home() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(organizationSchema),
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'BreadcrumbList',
+                        itemListElement: [
+                            {
+                                '@type': 'ListItem',
+                                position: 1,
+                                name: 'Home',
+                                item: baseUrl
+                            }
+                        ]
+                    })
                 }}
             />
             <BackgroundParticles />
@@ -93,7 +126,14 @@ export default function Home() {
                             Stop spending hours analyzing error logs. HealOps
                             automatically detects errors and warnings in your
                             observability data and self-heals your system,
-                            saving developers countless hours of debugging.
+                            saving developers countless hours of debugging.{' '}
+                            <Link href="/docs" className="text-primary hover:underline">
+                                Learn more
+                            </Link>{' '}
+                            or{' '}
+                            <Link href="/pricing" className="text-primary hover:underline">
+                                start for free
+                            </Link>.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
                             <Button
@@ -105,6 +145,10 @@ export default function Home() {
                                     href="https://calendly.com/sourabhkumawat0105/lets-talk-self-healing"
                                     target="_blank"
                                     rel="noreferrer"
+                                    onClick={() => {
+                                        trackCTA('Book a 30-Min Call', 'Hero Section');
+                                        trackKeyEvent('book_call_clicked');
+                                    }}
                                 >
                                     Book a 30-Min Call{' '}
                                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -116,7 +160,14 @@ export default function Home() {
                                 className="text-lg px-8 rounded-full h-12 font-semibold"
                                 asChild
                             >
-                                <a href="/docs">View Documentation</a>
+                                <a 
+                                    href="/docs"
+                                    onClick={() => {
+                                        trackCTA('View Documentation', 'Hero Section');
+                                    }}
+                                >
+                                    View Documentation
+                                </a>
                             </Button>
                         </div>
                     </FadeIn>
@@ -135,7 +186,10 @@ export default function Home() {
                             <p className="text-muted-foreground">
                                 We analyze your observability logs to identify
                                 errors and warnings, giving you deep insights
-                                into system health.
+                                into system health.{' '}
+                                <Link href="/docs/opentelemetry" className="text-primary hover:underline text-sm">
+                                    Learn about OpenTelemetry integration
+                                </Link>
                             </p>
                         </CardContent>
                     </Card>
@@ -161,7 +215,10 @@ export default function Home() {
                             <p className="text-muted-foreground">
                                 Eliminate the need for developers to manually
                                 check logs and fix errors. Let HealOps handle
-                                the routine maintenance.
+                                the routine maintenance.{' '}
+                                <Link href="/blog" className="text-primary hover:underline text-sm">
+                                    Read success stories
+                                </Link>
                             </p>
                         </CardContent>
                     </Card>
