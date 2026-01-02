@@ -10,7 +10,6 @@ import {
     Activity,
     Shield,
     Zap,
-    Terminal,
     Check,
     X,
     Bot,
@@ -24,6 +23,7 @@ import Link from 'next/link';
 import { IntegrationsSection } from '@/components/landing/integrations';
 import { FAQSection } from '@/components/landing/faq';
 import { CTASection } from '@/components/landing/cta';
+import { LogTerminal } from '@/components/landing/log-terminal';
 
 export default function Home() {
     const [animationKey, setAnimationKey] = useState(0);
@@ -156,61 +156,7 @@ export default function Home() {
                                 <div className="relative transform transition-all duration-500 hover:scale-[1.02]">
                                     {/* Glow Effect */}
                                     <div className="absolute -inset-1 bg-gradient-to-r from-primary via-green-500 to-blue-600 rounded-2xl blur opacity-20 animate-pulse" />
-
-                                    <div className="relative rounded-xl border border-white/10 bg-[#0A0A0A]/95 backdrop-blur-xl shadow-2xl overflow-hidden">
-                                        {/* Terminal Header */}
-                                        <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5">
-                                            <div className="flex gap-2">
-                                                <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50" />
-                                                <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
-                                                <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50" />
-                                            </div>
-                                            <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground/50">
-                                                <Terminal className="w-3 h-3" />
-                                                agent-cli --watch --prod
-                                            </div>
-                                        </div>
-
-                                        {/* Terminal Content */}
-                                        <div className="p-6 font-mono text-sm space-y-4">
-                                            <div className="flex gap-3 animate-in fade-in slide-in-from-left-2 duration-500">
-                                                <span className="text-blue-400 font-bold shrink-0">[MONITOR]</span>
-                                                <span className="text-muted-foreground">Scanning production logs (cluster: us-east-1)...</span>
-                                            </div>
-
-                                            <div className="flex gap-3 animate-in fade-in slide-in-from-left-2 duration-500 delay-700 fill-mode-forwards opacity-0" style={{ animationDelay: '1s' }}>
-                                                <span className="text-red-500 font-bold shrink-0">[ALERT]</span>
-                                                <span className="text-red-300">Anomaly detected: High latency in /api/checkout (p99 &gt; 2s)</span>
-                                            </div>
-
-                                            <div className="flex gap-3 animate-in fade-in slide-in-from-left-2 duration-500 delay-1000 fill-mode-forwards opacity-0" style={{ animationDelay: '2.5s' }}>
-                                                <span className="text-primary font-bold shrink-0">[AGENT]</span>
-                                                <span className="text-muted-foreground">Analyzing trace ID <span className="text-primary/70">tx_8f92a1</span>...</span>
-                                            </div>
-
-                                            <div className="pl-4 border-l-2 border-primary/20 ml-2 animate-in fade-in duration-500 delay-1000 fill-mode-forwards opacity-0" style={{ animationDelay: '3.5s' }}>
-                                                <div className="text-xs text-muted-foreground mb-1">Root Cause Analysis:</div>
-                                                <div className="text-white bg-white/5 p-2 rounded border border-white/10">
-                                                    N+1 Query detected in <span className="text-yellow-400">OrderService.ts:45</span>
-                                                </div>
-                                            </div>
-
-                                            <div className="flex gap-3 animate-in fade-in slide-in-from-left-2 duration-500 delay-1000 fill-mode-forwards opacity-0" style={{ animationDelay: '5s' }}>
-                                                <span className="text-primary font-bold shrink-0">[ACTION]</span>
-                                                <span className="text-muted-foreground">Generating fix and optimizing query...</span>
-                                            </div>
-
-                                            <div className="flex gap-3 animate-in fade-in slide-in-from-left-2 duration-500 delay-1000 fill-mode-forwards opacity-0" style={{ animationDelay: '6.5s' }}>
-                                                <span className="text-green-500 font-bold shrink-0">[SUCCESS]</span>
-                                                <span className="text-green-400">PR #402 opened: &quot;fix: batch order queries&quot;</span>
-                                            </div>
-
-                                            <div className="mt-4 p-3 bg-green-500/10 border border-green-500/20 rounded-lg flex items-center gap-3 animate-in zoom-in duration-500 fill-mode-forwards opacity-0" style={{ animationDelay: '7.5s' }}>
-                                                <GitPullRequest className="w-5 h-5 text-primary" />
-                                                <span className="text-sm font-semibold text-primary">Pull Request Ready for Review</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <LogTerminal />
                                 </div>
                              </FadeIn>
                         </div>
