@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
 import { useState } from 'react';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Menu } from 'lucide-react';
+import { Button } from '@/components/atoms/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/atoms/sheet';
 
 const navLinks = [
     { name: 'Pricing', href: '/pricing' },

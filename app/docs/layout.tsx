@@ -24,5 +24,9 @@ export default function DocsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <div className="container px-4 md:px-6 py-20 md:py-32 max-w-4xl mx-auto">
+      {children}
+    </div>
+  );
 }

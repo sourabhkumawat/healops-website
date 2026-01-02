@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/atoms/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { trackCTA } from '@/lib/analytics';
 

@@ -1,4 +1,4 @@
-import { FadeIn } from '@/components/animations/fade-in';
+import { FadeIn } from '@/components/atoms/animations/fade-in';
 
 export default function OpenTelemetryPage() {
   return (

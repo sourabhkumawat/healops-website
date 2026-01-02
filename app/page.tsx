@@ -1,10 +1,10 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { BackgroundParticles } from '@/components/ui/background-particles';
-import { FadeIn, FadeInStagger, FadeInItem } from '@/components/animations/fade-in';
+import { Button } from '@/components/atoms/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/atoms/card';
+import { Badge } from '@/components/atoms/badge';
+import { BackgroundParticles } from '@/components/atoms/background-particles';
+import { FadeIn, FadeInStagger, FadeInItem } from '@/components/atoms/animations/fade-in';
 import {
     ArrowRight,
     Activity,
@@ -20,10 +20,10 @@ import {
 import { useEffect, useState } from 'react';
 import { trackCTA, trackKeyEvent } from '@/lib/analytics';
 import Link from 'next/link';
-import { IntegrationsSection } from '@/components/landing/integrations';
-import { FAQSection } from '@/components/landing/faq';
-import { CTASection } from '@/components/landing/cta';
-import { LogTerminal } from '@/components/landing/log-terminal';
+import { IntegrationsSection } from '@/components/organisms/integrations-section';
+import { FAQSection } from '@/components/organisms/faq-section';
+import { CTASection } from '@/components/organisms/cta-section';
+import { LogTerminal } from '@/components/organisms/log-terminal-section';
 
 export default function Home() {
     const [animationKey, setAnimationKey] = useState(0);
