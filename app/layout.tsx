@@ -17,19 +17,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
     metadataBase: new URL('https://healops.com'),
     title: {
-        default: 'HealOps - Modern Incident Management & AI Observability',
+        default: 'HealOps - The AI Agent for Production Self-Healing & QA',
         template: '%s | HealOps'
     },
     description:
-        'HealOps is the AI-powered incident management platform that turns observability logs into self-healing actions for high-velocity engineering teams.',
+        'HealOps is an agentic framework that monitors your production 24/7, identifies bugs from observability logs, and automatically applies code fixes via pull requests. Your always-on QA engineer.',
     keywords: [
-        'incident management',
-        'AI observability',
-        'self-healing systems',
-        'devops automation',
-        'sre tools',
-        'log analysis',
-        'automated debugging'
+        'AI Agent',
+        'Agentic Framework',
+        'Self-Healing Infrastructure',
+        'Production QA',
+        'Automated Bug Fixing',
+        'Reduce Churn',
+        'Observability Agent',
+        'DevOps Automation',
+        'Startup Reliability'
     ],
     authors: [{ name: 'HealOps Team' }],
     creator: 'HealOps',
@@ -37,24 +39,24 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'en_US',
         url: 'https://healops.com',
-        title: 'HealOps - Turn Logs into Self-Healing Actions',
+        title: 'HealOps - The AI Agent That Fixes Your Production',
         description:
-            'Stop spending hours analyzing error logs. HealOps automatically detects errors and self-heals your system.',
+            'HealOps works 24/7 to monitor logs, detect bugs, and raise PRs to fix them. The agentic framework that ensures 99.9% uptime while you sleep.',
         siteName: 'HealOps',
         images: [
             {
                 url: '/og-image.png', // We should ensure this image exists or is created later, but standard practice to link it
                 width: 1200,
                 height: 630,
-                alt: 'HealOps Platform Preview'
+                alt: 'HealOps Agentic Framework'
             }
         ]
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'HealOps - AI-Powered Incident Management',
+        title: 'HealOps - Your 24/7 AI Production Engineer',
         description:
-            'Automate your incident response with HealOps. Turn observability logs into self-healing actions.',
+            'Meet the agent that heals your code. HealOps monitors observability logs and automatically fixes bugs in production.',
         images: ['/og-image.png'],
         creator: '@healops'
     },
