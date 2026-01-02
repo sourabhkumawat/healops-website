@@ -21,6 +21,9 @@ import {
 import { useEffect, useState } from 'react';
 import { trackCTA, trackKeyEvent } from '@/lib/analytics';
 import Link from 'next/link';
+import { IntegrationsSection } from '@/components/landing/integrations';
+import { FAQSection } from '@/components/landing/faq';
+import { CTASection } from '@/components/landing/cta';
 
 export default function Home() {
     const [animationKey, setAnimationKey] = useState(0);
@@ -287,6 +290,9 @@ export default function Home() {
                 </FadeInStagger>
             </section>
 
+            {/* Integrations Section */}
+            <IntegrationsSection />
+
             {/* Comparison Section */}
             <section className="container px-4 md:px-6 relative z-10 pb-24">
                 <FadeIn>
@@ -374,6 +380,12 @@ export default function Home() {
                     </div>
                 </FadeIn>
             </section>
+
+            {/* FAQ Section */}
+            <FAQSection />
+
+            {/* CTA Section */}
+            <CTASection />
         </div>
     );
 }
