@@ -1,7 +1,7 @@
 'use client';
 
 import { FadeIn, FadeInStagger } from '@/components/atoms/animations/fade-in';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/atoms/card';
+import { ValueCard } from '@/components/molecules/value-card';
 import { Activity, Zap, Shield, Brain, Clock, TrendingUp } from 'lucide-react';
 
 const values = [
@@ -69,17 +69,7 @@ export default function AboutPage() {
 
       <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {values.map((value, index) => (
-          <Card key={index} className="bg-card/50 border-border/50 backdrop-blur-sm">
-            <CardHeader>
-              <value.icon className="h-10 w-10 text-primary mb-4" />
-              <CardTitle className="text-xl">{value.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                {value.description}
-              </p>
-            </CardContent>
-          </Card>
+          <ValueCard key={index} value={value} />
         ))}
       </FadeInStagger>
     </div>
