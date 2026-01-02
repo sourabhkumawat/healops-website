@@ -11,7 +11,7 @@ export default function DocsPage() {
       
       <h2>Why HealOps?</h2>
       <p>
-        Traditional observability tools are great at telling you what's wrong. They give you dashboards, graphs, and alerts. But they stop there. They leave the "fixing" part to you.
+        Traditional observability tools are great at telling you what&apos;s wrong. They give you dashboards, graphs, and alerts. But they stop there. They leave the &quot;fixing&quot; part to you.
       </p>
       <p>
         HealOps is different. We believe that if a machine can detect an error, a machine should be able to fix it. Our platform analyzes your logs in real-time, detects anomalies, and automatically executes safe remediation actions.
@@ -20,7 +20,7 @@ export default function DocsPage() {
       <h2>How It Works</h2>
       <ol>
         <li><strong>Deep Log Analysis:</strong> Our AI agents ingest your observability logs in real-time, understanding the context of every error and warning.</li>
-        <li><strong>Anomaly Detection:</strong> We don't just look for thresholds; we look for patterns. A sudden spike in errors? A slow memory leak? We catch it.</li>
+        <li><strong>Anomaly Detection:</strong> We don&apos;t just look for thresholds; we look for patterns. A sudden spike in errors? A slow memory leak? We catch it.</li>
         <li><strong>Autonomous Remediation:</strong> HealOps matches the issue to a library of safe, pre-approved remediation actions and executes them automatically.</li>
         <li><strong>Continuous Learning:</strong> Our AI learns from every incident, getting smarter and more accurate over time.</li>
       </ol>
