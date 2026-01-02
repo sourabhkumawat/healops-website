@@ -1,11 +1,11 @@
 'use client';
 
-import { FadeIn } from '@/components/animations/fade-in';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent } from '@/components/ui/card';
-import { useState } from 'react';
+import { Button } from '@/components/atoms/button';
+import { Input } from '@/components/atoms/input';
+import { Card, CardContent } from '@/components/atoms/card';
+import { FadeIn } from '@/components/atoms/animations/fade-in';
 import { CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
 
 export default function ContactPage() {
     const [submitted, setSubmitted] = useState(false);

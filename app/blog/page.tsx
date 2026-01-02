@@ -1,9 +1,9 @@
 'use client';
 
-import { FadeIn, FadeInStagger } from '@/components/animations/fade-in';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { FadeIn, FadeInStagger } from '@/components/atoms/animations/fade-in';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/atoms/card';
+import { Badge } from '@/components/atoms/badge';
+import { Button } from '@/components/atoms/button';
 import Link from 'next/link';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import { blogPosts } from '@/lib/blog-data';

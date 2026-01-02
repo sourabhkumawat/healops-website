@@ -1,10 +1,10 @@
 'use client';
 
-import { FadeIn, FadeInStagger } from '@/components/animations/fade-in';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { FadeIn, FadeInStagger } from '@/components/atoms/animations/fade-in';
+import { Button } from '@/components/atoms/button';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/atoms/card';
 import { CheckCircle2, XCircle } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@/components/atoms/badge';
 import { trackCTA, trackKeyEvent } from '@/lib/analytics';
 
 const plans = [

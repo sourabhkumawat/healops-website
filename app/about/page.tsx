@@ -1,7 +1,7 @@
 'use client';
 
-import { FadeIn, FadeInStagger } from '@/components/animations/fade-in';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { FadeIn, FadeInStagger } from '@/components/atoms/animations/fade-in';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/atoms/card';
 import { Activity, Zap, Shield, Brain, Clock, TrendingUp } from 'lucide-react';
 
 const values = [
