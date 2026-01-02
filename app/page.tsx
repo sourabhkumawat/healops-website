@@ -165,7 +165,7 @@ export default function Home() {
             </section>
 
             {/* Trusted By - Social Proof */}
-            <section className="border-y border-white/5 bg-white/[0.02]">
+            <section className="border-y border-white/5 bg-white/[0.02] relative z-10">
                 <div className="container py-10 px-4">
                     <p className="text-center text-sm font-semibold text-muted-foreground tracking-widest mb-8 uppercase">
                         Trusted by High-Velocity Engineering Teams
