@@ -26,7 +26,7 @@ const faqs = [
 
 export function FAQSection() {
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-24 relative z-10 overflow-hidden">
             <div className="container px-4 md:px-6 max-w-4xl">
                 <FadeIn>
                     <div className="text-center mb-16">

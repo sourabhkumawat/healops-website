@@ -25,7 +25,7 @@ const integrations = [
 
 export function IntegrationsSection() {
     return (
-        <section className="py-24 border-b border-white/5 bg-black/20">
+        <section className="py-24 border-b border-white/5 bg-black/20 relative z-10">
             <div className="container px-4 md:px-6">
                 <FadeIn>
                     <div className="text-center mb-16">
