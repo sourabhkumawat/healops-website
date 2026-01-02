@@ -118,15 +118,15 @@ export default function Home() {
                             v2.0 is now available
                         </Badge>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white text-balance">
-                            Turn Observability Logs into{' '}
-                            <span className="text-primary">Self-Healing</span>{' '}
-                            Actions.
+                            The AI Agent That{' '}
+                            <span className="text-primary">Heals Your Production</span>{' '}
+                            24/7.
                         </h1>
                         <p className="text-xl text-muted-foreground max-w-[600px] text-balance">
-                            Stop spending hours analyzing error logs. HealOps
-                            automatically detects errors and warnings in your
-                            observability data and self-heals your system,
-                            saving developers countless hours of debugging.{' '}
+                            Meet the agentic framework that never sleeps. HealOps
+                            monitors your observability logs, identifies bugs, and
+                            automatically raises pull requests to fix them.
+                            Your production QA, automated.{' '}
                             <Link href="/docs" className="text-primary hover:underline">
                                 Learn more
                             </Link>{' '}
@@ -180,49 +180,114 @@ export default function Home() {
                     <Card className="bg-card/50 border-border/50 backdrop-blur-sm">
                         <CardHeader>
                             <Activity className="h-10 w-10 text-primary mb-4" />
-                            <CardTitle>Deep Observability Analysis</CardTitle>
+                            <CardTitle>24/7 Production QA</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <p className="text-muted-foreground">
-                                We analyze your observability logs to identify
-                                errors and warnings, giving you deep insights
-                                into system health.{' '}
-                                <Link href="/docs/opentelemetry" className="text-primary hover:underline text-sm">
-                                    Learn about OpenTelemetry integration
-                                </Link>
+                                An agent that watches your production environment day and night.
+                                It catches bugs before they churn your customers, ensuring
+                                reliability even when you're asleep.
                             </p>
                         </CardContent>
                     </Card>
                     <Card className="bg-card/50 border-border/50 backdrop-blur-sm">
                         <CardHeader>
                             <Zap className="h-10 w-10 text-primary mb-4" />
-                            <CardTitle>Automated Self-Healing</CardTitle>
+                            <CardTitle>Auto-Fix Pull Requests</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <p className="text-muted-foreground">
-                                Our system doesn't just alert you; it
-                                self-heals. Automated actions resolve issues
-                                instantly to prevent user impact.
+                                HealOps doesn't just alert you; it acts. The agent reads
+                                the logs, understands the code context, and opens a PR
+                                with the fix, ready for your review.
                             </p>
                         </CardContent>
                     </Card>
                     <Card className="bg-card/50 border-border/50 backdrop-blur-sm">
                         <CardHeader>
                             <Shield className="h-10 w-10 text-primary mb-4" />
-                            <CardTitle>Save Developer Time</CardTitle>
+                            <CardTitle>Reduce Client Churn</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <p className="text-muted-foreground">
-                                Eliminate the need for developers to manually
-                                check logs and fix errors. Let HealOps handle
-                                the routine maintenance.{' '}
-                                <Link href="/blog" className="text-primary hover:underline text-sm">
-                                    Read success stories
-                                </Link>
+                                Bugs kill trust. For fast-paced startups, HealOps is the
+                                safety net that keeps your product working perfectly,
+                                ensuring small bugs don't lose you big clients.
                             </p>
                         </CardContent>
                     </Card>
                 </FadeInStagger>
+            </section>
+
+            {/* Comparison Section */}
+            <section className="container px-4 md:px-6 relative z-10">
+                <FadeIn>
+                    <div className="text-center mb-10">
+                        <h2 className="text-3xl font-bold tracking-tight mb-4">
+                            Why Choose an Agentic Framework?
+                        </h2>
+                        <p className="text-muted-foreground">
+                            See how HealOps compares to traditional observability tools.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                         <Card className="bg-card/50 border-border/50 backdrop-blur-sm">
+                            <CardHeader>
+                                <CardTitle className="text-xl">Traditional Observability</CardTitle>
+                                <p className="text-sm text-muted-foreground">Datadog, New Relic, etc.</p>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                <ul className="space-y-3">
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-red-500">✕</span>
+                                        <span className="text-muted-foreground">Passive monitoring only</span>
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-red-500">✕</span>
+                                        <span className="text-muted-foreground">Floods you with alerts</span>
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-red-500">✕</span>
+                                        <span className="text-muted-foreground">Requires manual debugging</span>
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-red-500">✕</span>
+                                        <span className="text-muted-foreground">Downtime while you sleep</span>
+                                    </li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                        <Card className="bg-primary/10 border-primary/50 backdrop-blur-sm relative overflow-hidden">
+                             <div className="absolute top-0 right-0 p-3 bg-primary text-primary-foreground text-xs font-bold rounded-bl-xl">
+                                RECOMMENDED
+                            </div>
+                            <CardHeader>
+                                <CardTitle className="text-xl">HealOps Agent</CardTitle>
+                                <p className="text-sm text-muted-foreground">Agentic AI Framework</p>
+                            </CardHeader>
+                             <CardContent className="space-y-4">
+                                <ul className="space-y-3">
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-green-500">✓</span>
+                                        <span>Active 24/7 Agent</span>
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-green-500">✓</span>
+                                        <span>Fixes the root cause</span>
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-green-500">✓</span>
+                                        <span>Raises Pull Requests</span>
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-green-500">✓</span>
+                                        <span>Reduces Churn Automatically</span>
+                                    </li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </FadeIn>
             </section>
 
             {/* Live Logs Preview (Mock) */}
