@@ -6,18 +6,26 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
+import { Breadcrumbs } from '@/components/seo/breadcrumbs';
+import { trackFormSubmission } from '@/lib/analytics';
 
 export default function ContactPage() {
     const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        // Track form submission
+        trackFormSubmission('contact');
         // Mock submission
         setTimeout(() => setSubmitted(true), 1000);
     };
 
     return (
         <div className="container px-4 md:px-6 py-20 md:py-32">
+            <Breadcrumbs items={[
+                { name: 'Home', url: '/' },
+                { name: 'Contact', url: '/contact' }
+            ]} />
             <FadeIn className="max-w-xl mx-auto">
                 <div className="text-center mb-10">
                     <h1 className="text-4xl font-bold tracking-tight mb-4">

@@ -104,6 +104,68 @@ export function trackKeyEvent(eventName: string, value?: number) {
 }
 
 /**
+ * Track book demo events with location and CTA text
+ */
+export function trackBookDemo(location: string, ctaText: string) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'book_demo', {
+      cta_location: location,
+      cta_text: ctaText,
+      timestamp: new Date().toISOString(),
+    });
+  }
+}
+
+/**
+ * Track video play events
+ */
+export function trackVideoPlay(videoTitle: string) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'video_play', {
+      video_title: videoTitle,
+      timestamp: new Date().toISOString(),
+    });
+  }
+}
+
+/**
+ * Track pricing page views with utm_source
+ */
+export function trackPricingPageView(utmSource?: string) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'pricing_page_view', {
+      utm_source: utmSource || 'direct',
+      timestamp: new Date().toISOString(),
+    });
+  }
+}
+
+/**
+ * Track integration clicks
+ */
+export function trackIntegrationClick(integrationName: string) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'integration_click', {
+      integration_name: integrationName,
+      timestamp: new Date().toISOString(),
+    });
+  }
+}
+
+/**
+ * Track form submissions with form type
+ */
+export function trackFormSubmission(formType: string, success: boolean = true) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'form_submit', {
+      form_type: formType,
+      success: success,
+      timestamp: new Date().toISOString(),
+    });
+  }
+}
+
+/**
  * Initialize scroll depth tracking
  */
 export function initScrollTracking() {

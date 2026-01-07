@@ -18,12 +18,14 @@ import {
     Cpu
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { trackCTA, trackKeyEvent } from '@/lib/analytics';
+import { trackCTA, trackKeyEvent, trackBookDemo, trackVideoPlay } from '@/lib/analytics';
 import Link from 'next/link';
 import { IntegrationsSection } from '@/components/landing/integrations';
 import { FAQSection } from '@/components/landing/faq';
 import { CTASection } from '@/components/landing/cta';
 import { LogTerminal } from '@/components/landing/log-terminal';
+import { Breadcrumbs } from '@/components/seo/breadcrumbs';
+import { TestimonialsSection } from '@/components/landing/testimonials';
 
 export default function Home() {
     const [animationKey, setAnimationKey] = useState(0);
@@ -53,6 +55,7 @@ export default function Home() {
 
     return (
         <div className="flex flex-col gap-0 pb-20 relative overflow-hidden">
+            <Breadcrumbs items={[{ name: 'Home', url: '/' }]} />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -112,10 +115,11 @@ export default function Home() {
                                     HealOps Agent v2.0
                                 </Badge>
                                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white text-balance leading-tight">
-                                    Your 24/7 <span className="text-primary">AI Site Reliability Engineer</span>.
+                                    Stop Waking Up at 3 AM. <br />
+                                    <span className="text-primary">Automatically Fix Production Bugs Before Customers Notice.</span>
                                 </h1>
                                 <p className="text-xl text-muted-foreground max-w-[600px] text-balance mx-auto lg:mx-0">
-                                    Stop waking up at 3 AM. HealOps acts as an autonomous agent that monitors logs, detects bugs, and opens Pull Requests to fix them before customers notice.
+                                    Deploy auto-fixes 10x faster than manual debugging. Trusted by TechFlow, Velocis, and StackMind.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start pt-4">
                                     <Button
@@ -124,15 +128,15 @@ export default function Home() {
                                         asChild
                                     >
                                         <a
-                                            href="https://calendly.com/sourabhkumawat0105/lets-talk-self-healing"
+                                            href="https://experiment.healops.ai"
                                             target="_blank"
                                             rel="noreferrer"
                                             onClick={() => {
-                                                trackCTA('Book a Demo', 'Hero Section');
-                                                trackKeyEvent('book_demo_clicked');
+                                                trackCTA('Start Free Trial', 'Hero Section');
+                                                trackKeyEvent('start_free_trial_clicked');
                                             }}
                                         >
-                                            Book a Demo
+                                            Start Free Trial
                                             <ArrowRight className="ml-2 h-5 w-5" />
                                         </a>
                                     </Button>
@@ -142,8 +146,8 @@ export default function Home() {
                                         className="text-lg px-8 rounded-full h-12 font-semibold border-white/20 hover:bg-white/5"
                                         asChild
                                     >
-                                        <Link href="/docs">
-                                            How it Works
+                                        <Link href="/how-it-works">
+                                            See How It Works
                                         </Link>
                                     </Button>
                                 </div>
@@ -235,6 +239,9 @@ export default function Home() {
                     </FadeInItem>
                 </FadeInStagger>
             </section>
+
+            {/* Testimonials Section */}
+            <TestimonialsSection />
 
             {/* Integrations Section */}
             <IntegrationsSection />

@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { trackCTA } from '@/lib/analytics';
+import Link from 'next/link';
 
 export function CTASection() {
     return (
@@ -33,19 +34,34 @@ export function CTASection() {
                             asChild
                         >
                             <a
+                                href="https://experiment.healops.ai"
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={() => trackCTA('Try Free', 'CTA Section')}
+                            >
+                                Try Free
+                                <ArrowRight className="ml-2 h-5 w-5" />
+                            </a>
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant="outline"
+                            className="text-lg px-8 rounded-full h-14 font-semibold border-white/20 hover:bg-white/5"
+                            asChild
+                        >
+                            <a
                                 href="https://calendly.com/sourabhkumawat0105/lets-talk-self-healing"
                                 target="_blank"
                                 rel="noreferrer"
-                                onClick={() => trackCTA('Book Demo Bottom', 'CTA Section')}
+                                onClick={() => trackCTA('Contact Sales', 'CTA Section')}
                             >
-                                Book a Demo
-                                <ArrowRight className="ml-2 h-5 w-5" />
+                                Contact Sales
                             </a>
                         </Button>
                     </div>
 
                     <p className="text-sm text-muted-foreground pt-4">
-                        No credit card required. Easy 5-minute setup.
+                        No credit card required. 5-minute setup. Free tier available.
                     </p>
                 </div>
             </div>

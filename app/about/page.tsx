@@ -3,6 +3,7 @@
 import { FadeIn, FadeInStagger } from '@/components/animations/fade-in';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Activity, Zap, Shield, Brain, Clock, TrendingUp } from 'lucide-react';
+import { Breadcrumbs } from '@/components/seo/breadcrumbs';
 
 const values = [
   {
@@ -40,6 +41,10 @@ const values = [
 export default function AboutPage() {
   return (
     <div className="container px-4 md:px-6 py-20 md:py-32">
+      <Breadcrumbs items={[
+        { name: 'Home', url: '/' },
+        { name: 'About', url: '/about' }
+      ]} />
       <FadeIn className="text-center max-w-3xl mx-auto mb-20">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
           We&apos;re on a mission to make operations <span className="text-primary">autonomous</span>.

@@ -11,16 +11,18 @@ import {
     Database,
     Server
 } from 'lucide-react';
+import Link from 'next/link';
+import { trackIntegrationClick } from '@/lib/analytics';
 
 const integrations = [
-    { name: 'GitHub', icon: Github, category: 'Source Control' },
-    { name: 'GitLab', icon: Gitlab, category: 'Source Control' },
-    { name: 'Slack', icon: Slack, category: 'Alerting' },
-    { name: 'Linear', icon: Trello, category: 'Project Mgmt' }, // Visual proxy
-    { name: 'AWS', icon: Cloud, category: 'Infrastructure' },
-    { name: 'Docker', icon: Container, category: 'Container' },
-    { name: 'Kubernetes', icon: Server, category: 'Orchestration' },
-    { name: 'Datadog', icon: Database, category: 'Observability' }, // Visual proxy
+    { name: 'GitHub', icon: Github, category: 'Source Control', link: '/docs/github-integration', tooltip: 'Requires GitHub App installation' },
+    { name: 'GitLab', icon: Gitlab, category: 'Source Control', link: '/docs/gitlab-integration', tooltip: 'Supports self-hosted & cloud' },
+    { name: 'Slack', icon: Slack, category: 'Alerting', link: '/docs/slack-integration', tooltip: 'Real-time notifications' },
+    { name: 'Linear', icon: Trello, category: 'Project Mgmt', link: '/docs', tooltip: 'Coming soon' },
+    { name: 'AWS', icon: Cloud, category: 'Infrastructure', link: '/docs/aws-integration', tooltip: 'CloudWatch integration' },
+    { name: 'Docker', icon: Container, category: 'Container', link: '/docs/docker-integration', tooltip: 'Container monitoring' },
+    { name: 'Kubernetes', icon: Server, category: 'Orchestration', link: '/docs/kubernetes-integration', tooltip: 'K8s cluster support' },
+    { name: 'Datadog', icon: Database, category: 'Observability', link: '/docs/datadog-integration', tooltip: 'Bi-directional sync' },
 ];
 
 export function IntegrationsSection() {
@@ -39,9 +41,12 @@ export function IntegrationsSection() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                         {integrations.map((tool) => (
-                            <div
+                            <Link
                                 key={tool.name}
-                                className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/20 hover:bg-white/10 transition-all duration-300 cursor-default"
+                                href={tool.link}
+                                className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/20 hover:bg-white/10 transition-all duration-300 cursor-pointer relative"
+                                onClick={() => trackIntegrationClick(tool.name)}
+                                title={tool.tooltip}
                             >
                                 <div className="p-3 rounded-xl bg-black/50 text-muted-foreground group-hover:text-primary group-hover:scale-110 transition-all duration-300 mb-3">
                                     <tool.icon className="w-8 h-8" />
@@ -52,7 +57,10 @@ export function IntegrationsSection() {
                                 <span className="text-xs text-muted-foreground mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
                                     {tool.category}
                                 </span>
-                            </div>
+                                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span className="text-[10px] text-primary font-mono">→</span>
+                                </div>
+                            </Link>
                         ))}
                     </div>
                 </FadeIn>

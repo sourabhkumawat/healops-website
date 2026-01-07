@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import { blogPosts } from '@/lib/blog-data';
 import { trackEvent } from '@/lib/analytics';
+import { Breadcrumbs } from '@/components/seo/breadcrumbs';
 
 export default function BlogPage() {
   const baseUrl = 'https://healops.com';
@@ -41,6 +42,10 @@ export default function BlogPage() {
 
   return (
     <div className="container px-4 md:px-6 py-20 md:py-32">
+      <Breadcrumbs items={[
+        { name: 'Home', url: '/' },
+        { name: 'Blog', url: '/blog' }
+      ]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

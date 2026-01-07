@@ -37,6 +37,7 @@ export function LogTerminal() {
     ]);
     const scrollRef = useRef<HTMLDivElement>(null);
     const [, setCurrentIndex] = useState(0);
+    const logIdCounterRef = useRef(0);
 
     // Add logs loop
     useEffect(() => {
@@ -46,7 +47,7 @@ export function LogTerminal() {
                 const entry = SEQUENCE[prev];
 
                 const newLog: LogEntry = {
-                    id: Math.random().toString(36).substr(2, 9),
+                    id: `log-${Date.now()}-${logIdCounterRef.current++}`,
                     timestamp: getTime(),
                     ...entry
                 };

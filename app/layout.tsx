@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
+import { ConnectModal } from '@/components/marketing/connect-modal';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -158,6 +159,7 @@ export default function RootLayout({
                 <Navbar />
                 <main className="flex-1 pt-16">{children}</main>
                 <Footer />
+                <ConnectModal />
             </body>
         </html>
     );

@@ -5,7 +5,7 @@ export function Footer() {
     return (
         <footer className="border-t border-border/40 bg-background py-12 md:py-16 relative z-10">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
                     <div className="col-span-1">
                         <Link
                             href="/"
@@ -21,14 +21,31 @@ export function Footer() {
                             <span>HealOps</span>
                         </Link>
                         <p className="text-sm text-muted-foreground max-w-xs mb-6">
-                            The modern incident management platform for
-                            high-velocity engineering teams.
+                            AI-powered self-healing platform for production environments.
                         </p>
+                        <div className="flex gap-2">
+                            <Link
+                                href="https://experiment.healops.ai"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-sm font-semibold text-primary hover:underline"
+                            >
+                                Try Free
+                            </Link>
+                        </div>
                     </div>
 
                     <div>
                         <h3 className="font-semibold mb-4">Product</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
+                            <li>
+                                <Link
+                                    href="/how-it-works"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    How It Works
+                                </Link>
+                            </li>
                             <li>
                                 <Link
                                     href="/pricing"
@@ -43,6 +60,36 @@ export function Footer() {
                                     className="hover:text-primary transition-colors"
                                 >
                                     Documentation
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/case-studies"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    Case Studies
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 className="font-semibold mb-4">Solutions</h3>
+                        <ul className="space-y-2 text-sm text-muted-foreground">
+                            <li>
+                                <Link
+                                    href="/for-startups"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    For Startups
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/for-enterprises"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    For Enterprises
                                 </Link>
                             </li>
                         </ul>
@@ -72,7 +119,7 @@ export function Footer() {
                                     href="/contact"
                                     className="hover:text-primary transition-colors"
                                 >
-                                    Contact
+                                    Contact Sales
                                 </Link>
                             </li>
                         </ul>

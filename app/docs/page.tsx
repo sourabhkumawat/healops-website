@@ -1,9 +1,15 @@
 import Link from 'next/link';
 import { FadeIn } from '@/components/animations/fade-in';
+import { Breadcrumbs } from '@/components/seo/breadcrumbs';
 
 export default function DocsPage() {
   return (
-    <FadeIn className="prose prose-invert max-w-none">
+    <>
+      <Breadcrumbs items={[
+        { name: 'Home', url: '/' },
+        { name: 'Documentation', url: '/docs' }
+      ]} />
+      <FadeIn className="prose prose-invert max-w-none">
       <h1>Introduction to HealOps</h1>
       <p className="lead text-xl text-muted-foreground">
         HealOps is an AI-powered self-healing platform that turns observability logs into automated remediation actions, saving developers countless hours of debugging and incident response.
@@ -52,6 +58,7 @@ export default function DocsPage() {
       <p>
         Check out our <Link href="/docs/opentelemetry" className="text-primary hover:underline">OpenTelemetry Node.js SDK</Link> guide to start capturing and self-healing errors in minutes.
       </p>
-    </FadeIn>
+      </FadeIn>
+    </>
   );
 }
